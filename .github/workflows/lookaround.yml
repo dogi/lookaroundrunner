@@ -1,7 +1,8 @@
 name: look around
 
 on: 
-  push: 
+  push:
+  workflow_dispatch:
 
 jobs:
   build-image:
