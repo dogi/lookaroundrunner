@@ -20,7 +20,7 @@ jobs:
           sudo apt-get install -y --no-install-recommends tor
           npm install --global @treehouses/cli
           treehouses version
-          clean() { col -b | sed -r 's/\?[0-9;]*[A-Za-z]//g; s|^/[[:space:]]*||' }
+          clean() { col -b | sed -r 's/\?[0-9;]*[A-Za-z]//g; s|^/[[:space:]]*||'; }
           sudo -E treehouses tor add 22 2>&1 | clean
           sudo -E treehouses tor 2>&1 | clean
           sudo -E treehouses tor list 2>&1 | clean
