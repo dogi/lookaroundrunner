@@ -9,18 +9,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@v2
-      - name: open seasame
+        uses: actions/checkout@v4
+      - name: open sesame
+        env:
+          DEBIAN_FRONTEND: noninteractive
+          TERM: xterm
+          NOSPIN: "1"
         run: |
-          #sudo apt update  
-          sudo apt install tor
-          sudo npm install -g @treehouses/cli
-          sudo treehouses tor add 22
-          sudo treehouses tor
-          sudo treehouses tor notice now
-          sudo treehouses sshkey github adduser dogi
-          sudo treehouses sshkey github adduser rjpadilla
-          sudo treehouses sshkey github adduser jlkwong
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends tor
+          npm install --global @treehouses/cli
+          treehouses version
+          clean() { col -b | sed -r 's/\?[0-9;]*[A-Za-z]//g; s|^/[[:space:]]*||'; }
+          sudo -E treehouses tor add 22 2>&1 | clean
+          sudo -E treehouses tor 2>&1 | clean
+          sudo -E treehouses tor list 2>&1 | clean
+          sudo -E treehouses tor notice now 2>&1 | clean
+          sudo -E treehouses sshkey github adduser dogi 2>&1 | clean
           echo "shh only dreams"
-          sleep 1200
-            
