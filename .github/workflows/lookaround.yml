@@ -20,9 +20,10 @@ jobs:
           sudo apt-get install -y --no-install-recommends tor
           npm install --global @treehouses/cli
           treehouses version
-          sudo -E treehouses tor add 22 2>&1 | sed -r $'s/\x1B\\[[0-9;?]*[A-Za-z]//g; s/[\x08\r]//g' | col -b
-          sudo -E treehouses tor 2>&1 | sed -r $'s/\x1B\\[[0-9;?]*[A-Za-z]//g; s/[\x08\r]//g'  | col -b
-          sudo -E treehouses tor list 2>&1 | sed -r $'s/\x1B\\[[0-9;?]*[A-Za-z]//g; s/[\x08\r]//g'  | col -b
-          sudo -E treehouses tor notice now 2>&1 | sed -r $'s/\x1B\\[[0-9;?]*[A-Za-z]//g; s/[\x08\r]//g'  | col -b
-          sudo -E treehouses sshkey github adduser dogi 2>&1 | sed -r $'s/\x1B\\[[0-9;?]*[A-Za-z]//g; s/[\x08\r]//g'  | col -b
+          clean() { col -b | sed -e 's|^/[[:space:]]*||'; }
+          sudo -E treehouses tor add 22 2>&1 | clean
+          sudo -E treehouses tor 2>&1 | clean
+          sudo -E treehouses tor list 2>&1 | clean
+          sudo -E treehouses tor notice now 2>&1 | clean
+          sudo -E treehouses sshkey github adduser dogi 2>&1 | clean
           echo "shh only dreams"
