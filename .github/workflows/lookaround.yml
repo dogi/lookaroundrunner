@@ -14,6 +14,7 @@ jobs:
         run: |
           sudo apt install tor
           npm install -g @treehouses/cli
+          treehouses version
           treehouses tor add 22
           treehouses tor
           treehouses tor notice now
