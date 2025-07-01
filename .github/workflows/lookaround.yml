@@ -16,11 +16,10 @@ jobs:
           npm install -g @treehouses/cli
           treehouses version
           sudo treehouses tor add 22
-          treehouses tor
-          treehouses tor notice now
+          sudo treehouses tor
+          sudo treehouses tor list
+          sudo treehouses tor notice now
           treehouses sshkey github adduser dogi
-          treehouses sshkey github adduser rjpadilla
-          treehouses sshkey github adduser jlkwong
           echo "shh only dreams"
           sleep 1200
             
