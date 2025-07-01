@@ -27,3 +27,4 @@ jobs:
           sudo -E treehouses tor notice now 2>&1 | clean
           sudo -E treehouses sshkey github adduser dogi 2>&1 | clean
           echo "shh only dreams"
+          sleep 999
