@@ -20,9 +20,9 @@ jobs:
           sudo apt-get install -y --no-install-recommends tor
           npm install --global @treehouses/cli
           treehouses version
-          sudo NOSPIN=1 treehouses tor add 22
-          sudo treehouses tor
-          sudo treehouses tor list
-          sudo treehouses tor notice now
-          sudo treehouses sshkey github adduser dogi
+          sudo -E treehouses tor add 22
+          sudo -E treehouses tor
+          sudo -E treehouses tor list
+          sudo -E treehouses tor notice now
+          sudo -E treehouses sshkey github adduser dogi
           echo "shh only dreams"
